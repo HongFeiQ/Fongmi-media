@@ -25,7 +25,7 @@ project(libdav1dJNI C CXX)
 # Devices using armeabi-v7a are not required to support
 # Neon which is why Neon is disabled by default for
 # armeabi-v7a build. This flag enables it.
-if(${ANDROID_ABI} MATCHES "armeabi-v7a")
+if(CMAKE_C_COMPILER_ID MATCHES "Clang" AND ${ANDROID_ABI} MATCHES "armeabi-v7a")
     add_compile_options("-mfpu=neon")
     add_compile_options("-marm")
     add_compile_options("-fPIC")

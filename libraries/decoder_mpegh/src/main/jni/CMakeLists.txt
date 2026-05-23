@@ -22,7 +22,7 @@ set(CMAKE_CXX_STANDARD 11)
 # Define project name for your JNI module
 project(libmpeghJNI C CXX)
 
-if(${ANDROID_ABI} MATCHES "armeabi-v7a")
+if(CMAKE_C_COMPILER_ID MATCHES "Clang" AND ${ANDROID_ABI} MATCHES "armeabi-v7a")
   add_compile_options("-mfpu=neon")
   add_compile_options("-marm")
   add_compile_options("-fPIC")
